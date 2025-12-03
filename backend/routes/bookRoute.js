@@ -6,6 +6,9 @@ import { hash } from "bcrypt";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken";
 
+router.get('/test',(req,res)=>{
+  res.send('Backend connected')
+})
 const checkToken=((req,res,next)=> {
   try{
     const token=req.cookies.token;
