@@ -67,7 +67,7 @@ router.post('/books',checkToken,async(req,res)=>{
     }
 })
 
-router.get('/favicon.ico',checkToken,async(req,res)=>{
+router.get('/',checkToken,async(req,res)=>{
     const Use = await book.find();
     res.send(Use);
 })
