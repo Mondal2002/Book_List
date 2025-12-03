@@ -19,9 +19,7 @@ import UpdateUser from './adminPages/UpdateUser';
 export const App = () => {
   return (
     <Routes>
-      <Route path='/books'element={<PotectedRoute>
-        <Home />
-      </PotectedRoute>}/>
+      <Route path='/books'element={<Home />}/>
       <Route path='/book/create/'element={<Create />}/>
       <Route path='book/update/:id' element={<Update />}/>
       <Route path='/book/delete/:id' element={<Delete />}/>
