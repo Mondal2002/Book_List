@@ -1,0 +1,30 @@
+import express, { response } from "express";
+import mongoose from "mongoose";
+import {PORT , MongoDBURL} from "./config.js";
+import {book,User} from "./models/bookModel.js";
+import bookRoute from "./routes/bookRoute.js"
+import cors from 'cors';
+import cookieParser from "cookie-parser"
+
+const app=express()
+app.use(cookieParser())
+app.use(cors({
+  origin: "http://localhost:5173",  // your Vite frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+
+app.use(express.json());
+app.use("/",bookRoute);
+
+mongoose.connect(MongoDBURL).then(() =>{
+    console.log('Connected to database');
+    app.listen(PORT,()=>{
+    console.log(`server running at http://localhost:${PORT}`);
+});
+}).catch((error)=>{
+    console.log(error);
+})
+
+
