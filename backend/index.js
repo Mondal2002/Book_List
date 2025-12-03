@@ -13,7 +13,8 @@ const MongoDBURL = process.env.MONGODB_URL;
 const app=express()
 app.use(cookieParser())
 app.use(cors({
-  origin: "http://localhost:5173",  // your Vite frontend
+  origin: "http://localhost:5173", 
+  "https://book-list-qb4x-subham-mondals-projects-4d6994ac.vercel.app/"// your Vite frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
