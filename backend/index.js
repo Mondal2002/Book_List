@@ -1,10 +1,14 @@
 import express, { response } from "express";
 import mongoose from "mongoose";
-import {PORT , MongoDBURL} from "./config.js";
 import {book,User} from "./models/bookModel.js";
 import bookRoute from "./routes/bookRoute.js"
 import cors from 'cors';
 import cookieParser from "cookie-parser"
+import dotenv from "dotenv";
+
+dotenv.config(); 
+const PORT = process.env.PORT;
+const MongoDBURL = process.env.MONGODB_URL;
 
 const app=express()
 app.use(cookieParser())
@@ -20,11 +24,8 @@ app.use("/",bookRoute);
 
 mongoose.connect(MongoDBURL).then(() =>{
     console.log('Connected to database');
-    app.listen(PORT,()=>{
-    console.log(`server running at http://localhost:${PORT}`);
-});
 }).catch((error)=>{
     console.log(error);
 })
-
+export default app;
 
