@@ -145,9 +145,12 @@ router.post('/books/login', async (req, res) => {
       "secret",
       { expiresIn: "1h" }
     );
-        res.cookie("token", token,{
-          secure: true
-        });
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        path: "/",
+      });
 
     return res.status(200).json({
       message: "Login successful",
