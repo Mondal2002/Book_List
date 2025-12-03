@@ -5,6 +5,11 @@ import {book,User} from "./models/bookModel.js";
 import bookRoute from "./routes/bookRoute.js"
 import cors from 'cors';
 import cookieParser from "cookie-parser"
+import dotenv from "dotenv";
+
+dotenv.config(); 
+const PORT = process.env.PORT;
+const MongoDBURL = process.env.MONGODB_URL;
 
 const app=express()
 app.use(cookieParser())
