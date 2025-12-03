@@ -17,7 +17,7 @@ const Home = () => {
   const fetchBooks =async()=>{
     try{
       setLoading(true);
-      const res=await axios.get('https://book-list-ur6v.vercel.app/',{
+      const res=await axios.get('https://book-list-tysl.onrender.com/',{
          withCredentials: true
       });
         setBooks(res.data);

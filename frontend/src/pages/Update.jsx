@@ -33,7 +33,7 @@ const Update = () => {
       Published_Year
     };
     setLoading(true);
-    await axios.put(`https://book-list-ur6v.vercel.app/books/${id}`,data)
+    await axios.put(`https://book-list-tysl.onrender.com/${id}`,data)
     .then(()=>{
       setLoading(false);
       navigate('/books');

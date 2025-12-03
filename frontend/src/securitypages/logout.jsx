@@ -9,7 +9,7 @@ const Logout = () => {
     const navigate = useNavigate();
     const LogoutPage=async()=>{
      setLoading(true);
-    await axios.get(`https://book-list-ur6v.vercel.app/logout`,{
+    await axios.get(`https://book-list-tysl.onrender.com/logout`,{
        withCredentials: true
     })
     .then(()=>{

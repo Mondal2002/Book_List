@@ -11,7 +11,7 @@ const Delete = () => {
    const {id} =useParams();
   const deletebook=async()=>{
     setLoading(true);
-    await axios.delete(`https://book-list-ur6v.vercel.app/book/${id}`,{
+    await axios.delete(`https://book-list-tysl.onrender.com/${id}`,{
        withCredentials: true
     })
     .then(()=>{

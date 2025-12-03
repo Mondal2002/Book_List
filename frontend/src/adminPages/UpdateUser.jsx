@@ -15,7 +15,7 @@ const UpdateUser = () => {
   const navigate = useNavigate();
   const {id}=useParams();
   useEffect(()=>{
-    axios.get(`https://book-list-ur6v.vercel.app/admin/user/${id}`,{ withCredentials: true})
+    axios.get(`https://book-list-tysl.onrender.com/admin/user/${id}`,{ withCredentials: true})
     .then((res)=>{
       setloginId(res.data.loginId);
       setIsActive(res.data.IsActive);
