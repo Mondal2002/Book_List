@@ -17,7 +17,7 @@ const Home = () => {
   const fetchBooks =async()=>{
     try{
       setLoading(true);
-      const res=await axios.get('https://book-list-tysl.onrender.com/',{
+      const res=await axios.get('https://book-list-tysl.onrender.com/booklist',{
          withCredentials: true
       });
         setBooks(res.data);
