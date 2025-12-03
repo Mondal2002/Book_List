@@ -15,7 +15,7 @@ const AllUsersList = () => {
   const fetchUsers =async()=>{
     try{
       setLoading(true);
-      const res=await axios.get('http://localhost:5555/admin/allusers',{
+      const res=await axios.get('https://book-list-ur6v.vercel.app/allusers',{
          withCredentials: true
       });
         setUsers(res.data);

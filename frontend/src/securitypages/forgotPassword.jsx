@@ -18,7 +18,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
       password
     };
     setLoading(true);
-    await axios.put(`http://localhost:5555/forgotPassword/${id}`,data)
+    await axios.put(`https://book-list-ur6v.vercel.app/forgotPassword/${id}`,data)
     .then(()=>{
       setLoading(false);
       alert('Password change successful')

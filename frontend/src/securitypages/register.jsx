@@ -18,7 +18,7 @@ const Register = () => {
       password : password
     };
     setLoading(true);
-    axios.post('http://localhost:5555/books/register',data,
+    axios.post('https://book-list-ur6v.vercel.app/register',data,
       {
         withCredentials: true
        })

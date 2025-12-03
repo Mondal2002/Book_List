@@ -13,7 +13,7 @@ const DeleteUser = () => {
    const {id} =useParams();
   const deleteUser=async()=>{
     setLoading(true);
-    await axios.delete(`http://localhost:5555/admin/DeleteUser/${id}`,{
+    await axios.delete(`https://book-list-ur6v.vercel.app/admin/DeleteUser/${id}`,{
        withCredentials: true
     })
     .then(()=>{

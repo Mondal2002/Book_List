@@ -12,7 +12,7 @@ const DeactivateAcc = () => {
   const deleteacc=async()=>{
     setLoading(true);
 await axios.put(
-  "http://localhost:5555/deactivate/acc",
+  "https://book-list-ur6v.vercel.app/deactivate/acc",
   {},
   { withCredentials: true }// config here
 )

@@ -16,7 +16,7 @@ const Update = () => {
   const navigate = useNavigate();
   const {id}=useParams();
   useEffect(()=>{
-    axios.get(`http://localhost:5555/${id}`,{ withCredentials: true})
+    axios.get(`https://book-list-ur6v.vercel.app/${id}`,{ withCredentials: true})
     .then((res)=>{
       setBook_name(res.data.Book_name);
       setAuthor(res.data.Author);
@@ -33,7 +33,7 @@ const Update = () => {
       Published_Year
     };
     setLoading(true);
-    await axios.put(`http://localhost:5555/books/${id}`,data)
+    await axios.put(`https://book-list-ur6v.vercel.app/books/${id}`,data)
     .then(()=>{
       setLoading(false);
       navigate('/books');

@@ -17,7 +17,7 @@ const Home = () => {
   const fetchBooks =async()=>{
     try{
       setLoading(true);
-      const res=await axios.get('http://localhost:5555/',{
+      const res=await axios.get('https://book-list-ur6v.vercel.app/',{
          withCredentials: true
       });
         setBooks(res.data);

@@ -20,7 +20,7 @@ const AdminLogin = () => {
       password : password
     };
     setLoading(true);
-    axios.post('http://localhost:5555/admin/login',data,
+    axios.post('https://book-list-ur6v.vercel.app/admin/login',data,
       {
         withCredentials: true
        })
