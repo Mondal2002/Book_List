@@ -44,6 +44,12 @@ const checkAdmin=(async(req,res,next)=>{
   }
 
 )
+const requireAdmin = (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return res.status(403).json({ message: "Admin access only" });
+  }
+  next();
+};
 router.get("/logout",checkToken, (req,res)=>{
   console.log('logging out...')
   res.clearCookie("token");
@@ -141,7 +147,7 @@ router.post('/books/login', async (req, res) => {
     console.log("Password matched");
 
     const token = jwt.sign(
-      { id:user._id,loginId: user.loginId },
+      { id:user._id,loginId: user.loginId ,role:"user" },
       "secret",
       { expiresIn: "1h" }
     );
@@ -291,7 +297,7 @@ router.post('/admin/login', async (req, res) => {
     console.log("Password matched");
 
     const token = jwt.sign(
-      { id:admins._id,adminId: admins.adminId },
+      { id:admins._id,adminId: admins.adminId ,role:"admin" },
       "secret",
       { expiresIn: "1h" }
     );
@@ -308,7 +314,7 @@ router.post('/admin/login', async (req, res) => {
   }
 
 });
-router.get('/admin/allUsers',checkAdmin,async(req,res)=>{
+router.get('/admin/allUsers',checkToken,requireAdmin,async(req,res)=>{
   const alluser=await User.find();
   res.send(alluser);
 })
@@ -316,7 +322,7 @@ router.get('/admin/alladmins',async(req,res)=>{
   const alluser=await admin.find();
   res.send(alluser);
 })
-router.delete('/admin/DeleteUser/:id',checkAdmin,async(req,res)=>
+router.delete('/admin/DeleteUser/:id',checkToken,requireAdmin,async(req,res)=>
 {
     const id = req.params.id;   // ✅ Correct
 
@@ -339,7 +345,7 @@ router.get('/admin/user/:id',async(req,res)=>{
   const element= await User.findById(id)
   res.send(element);
 })
-router.put('/admin/UpdateUser/:id',checkAdmin,async(req,res)=>{
+router.put('/admin/UpdateUser/:id',checkToken,requireAdmin,async(req,res)=>{
   const id =req.params.id;
   try{
     const updateUser= await User.findByIdAndUpdate(id,req.body);
