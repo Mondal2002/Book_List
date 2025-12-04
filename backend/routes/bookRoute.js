@@ -78,7 +78,7 @@ router.get('/:id',async(req,res)=>{
     res.send(User);
 })
 
-router.put('/books/:id',checkToken,async(req,res)=>{
+router.put('/Update/:id',checkToken,async(req,res)=>{
   const id =req.params.id;
   try{
     const updateBook= await book.findByIdAndUpdate(id,req.body);
