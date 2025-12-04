@@ -16,7 +16,7 @@ const Update = () => {
   const navigate = useNavigate();
   const {id}=useParams();
   useEffect(()=>{
-    axios.get(`https://book-list-ur6v.vercel.app/${id}`,{ withCredentials: true})
+    axios.get(`https://book-list-tysl.onrender.com/${id}`,{ withCredentials: true})
     .then((res)=>{
       setBook_name(res.data.Book_name);
       setAuthor(res.data.Author);
