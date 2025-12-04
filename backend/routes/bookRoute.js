@@ -314,7 +314,7 @@ router.post('/admin/login', async (req, res) => {
   }
 
 });
-router.get('/admin/allUsers',async(req,res)=>{
+router.get('/admin/allUsers',checkAdmin,async(req,res)=>{
   const alluser=await User.find();
   res.send(alluser);
 })
