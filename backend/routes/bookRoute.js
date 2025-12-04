@@ -314,7 +314,7 @@ router.post('/admin/login', async (req, res) => {
   }
 
 });
-router.get('/admin/allUsers',checkAdmin,async(req,res)=>{
+router.get('/admin/allUsers',async(req,res)=>{
   const alluser=await User.find();
   res.send(alluser);
 })
@@ -322,7 +322,7 @@ router.get('/admin/alladmins',async(req,res)=>{
   const alluser=await admin.find();
   res.send(alluser);
 })
-router.delete('/admin/DeleteUser/:id',checkToken,requireAdmin,async(req,res)=>
+router.delete('/admin/DeleteUser/:id',checkToken,async(req,res)=>
 {
     const id = req.params.id;   // ✅ Correct
 
