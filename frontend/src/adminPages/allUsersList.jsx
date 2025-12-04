@@ -15,7 +15,7 @@ const AllUsersList = () => {
   const fetchUsers =async()=>{
     try{
       setLoading(true);
-      const res=await axios.get('https://book-list-tysl.onrender.com/allusers',{
+      const res=await axios.get('https://book-list-tysl.onrender.com/admin/allusers',{
          withCredentials: true
       });
         setUsers(res.data);
