@@ -11,7 +11,7 @@ const Delete = () => {
    const {id} =useParams();
   const deletebook=async()=>{
     setLoading(true);
-    await axios.delete(`https://book-list-tysl.onrender.com/${id}`,{
+    await axios.delete(`https://book-list-tysl.onrender.com/book/${id}`,{
        withCredentials: true
     })
     .then(()=>{
