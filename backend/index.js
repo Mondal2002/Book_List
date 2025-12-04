@@ -18,7 +18,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://book-list-qb4x-subham-mondals-projects-4d6994ac.vercel.app/",
+      "https://book-list-qb4x-subham-mondals-projects-4d6994ac.vercel.app",
       "https://book-list-qb4x.vercel.app" // replace
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
