@@ -15,6 +15,7 @@ const checkToken=((req,res,next)=> {
     if(!token) return res.sendStatus(401);
     const user=jwt.verify(req.cookies.token,"secret")
     req.user=user;
+    console.log(req.user);
     next();
   }
   catch(err){
@@ -23,27 +24,6 @@ const checkToken=((req,res,next)=> {
   }
 
 })
-const checkAdmin=(async(req,res,next)=>{
-  try{
-    const token=req.cookies.token;
-    if (!token) {
-      return res.status(401).json({ message: "No token, unauthorized" });
-    }
-
-    const decoded = jwt.verify(token, "secret");
-    const MrAdmin=await admin.findOne({_id:decoded.id});
-    if(!MrAdmin){
-      return res.status(404).json({message:"Access Unauthorised"})}
-      req.admin = MrAdmin;
-    next();
-  }
-  catch(err){
-      console.error(err);
-      return res.status(500).json({error:err.message });
-    }
-  }
-
-)
 const requireAdmin = (req, res, next) => {
   if (req.user.role !== "admin") {
     return res.status(403).json({ message: "Admin access only" });
